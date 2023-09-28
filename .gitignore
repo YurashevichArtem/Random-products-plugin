@@ -1,0 +1,142 @@
+# -----------------------------------------------------------------
+# .gitignore for WordPress
+# By default all files are ignored.  You'll need to whitelist
+# any mu-plugins, plugins, or themes you want to include in the repo.
+#
+# To ignore uncommitted changes in a file that is already tracked, use
+# git update-index --assume-unchanged
+#
+# To stop tracking a file that is currently tracked, use
+# git rm --cached
+#
+# -----------------------------------------------------------------
+
+# Wordpress admin ignore
+wordpress/wp-admin
+
+# Wordpress includes ignore
+wordpress/wp-includes
+
+# Wordpress content ignore 
+wordpress/wp-content/unused/*
+wordpress/wp-content/index.php
+
+# Wordpress plugins ignore
+wordpress/wp-content/plugins/*.php
+wordpress/wp-content/plugins/akismet
+wordpress/wp-content/plugins/woocommerce
+!wordpress/wp-content/plugins/random-products/
+
+# Wordpress languages
+!wordpress/wp-content/languages
+
+# Theme ignore
+wordpress/wp-content/themes/twentytwentyone/
+wordpress/wp-content/themes/twentytwentythree/
+wordpress/wp-content/themes/twentytwentytwo/
+wordpress/wp-content/themes/index.php
+
+# WP base files ignore
+wordpress/*.php
+wordpress/readme.html
+
+# ignore node dependency directories (used by grunt)
+node_modules
+
+# ignore vendor
+vendor
+
+# Env file
+.env
+
+# Netbeans
+/nbproject/private/
+nbproject
+
+# visual studio code
+.vscode/*
+
+# WebStorm / PhpStorm
+.idea/*
+.idea
+
+# ignore OS generated files
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+*.txt
+
+# ignore log files and databases
+logs
+*.log
+*.sql
+*.sqlite
+npm-debug.log*
+package-lock.json
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ignore .htaccess
+.htaccess
+
+# -------------------------
+# Whitelisted Files
+# -------------------------
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!.env.example
+!.phpcs.xml
+!README.md
+!composer.json
+!composer.lock
+!docker-compose.yml
+!.dockerignore
+!Makefile
+
+# Keep VS Code Workspace Settings
+
+!.vscode
+!.vscode/*.json

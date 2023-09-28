@@ -1,0 +1,77 @@
+version: '3.5'
+
+services:
+  db:
+    image: mysql:${SQL_TAG}
+    container_name: ${CONTAINER_NAME}_db
+    restart: unless-stopped
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - app-network
+
+  wordpress:
+    depends_on: 
+      - db
+    image: wordpress:${WORDPRESS_TAG}
+    container_name: ${CONTAINER_NAME}_wordpress
+    restart: unless-stopped
+    environment:
+       WORDPRESS_DB_HOST: ${DB_HOST}
+       WORDPRESS_DB_USER: ${DB_USER}
+       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+       WORDPRESS_DB_NAME: ${DB_NAME}
+       WORDPRESS_DEBUG: 1
+       XDEBUG_CONFIG: remote_host=host.docker.internal
+    volumes:
+      - ./wordpress:/var/www/html
+    networks:
+      - app-network
+
+  webserver:
+    depends_on:
+      - wordpress
+    image: nginx:${NGINX_TAG}
+    container_name: ${CONTAINER_NAME}_webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+    networks:
+      - app-network
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${CONTAINER_NAME}_pma
+    restart: always
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      PMA_HOST: ${CONTAINER_NAME}_db
+      PMA_PORT: 3306
+      UPLOAD_LIMIT: 300M
+    ports:
+      - 8081:80
+    volumes:
+      - /sessions
+    networks:
+      - app-network
+
+volumes:
+  database:
+
+networks:
+  app-network:
+    driver: bridge
+
