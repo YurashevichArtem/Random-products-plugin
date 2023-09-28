@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ruleset  name="PHPCS">
 <description>PHPCS configuration file.</description>
-<file>wordpress/wp-content/plugins</file>
+<file>wordpress/wp-content/plugins/random-products</file>
 <arg name="extensions" value="php"/>
 <rule  ref="PSR12"/>
 </ruleset>
