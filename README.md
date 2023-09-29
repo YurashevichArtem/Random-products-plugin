@@ -47,12 +47,6 @@ composer install
 ```
 You can skip `composer install` command and install `woocommerce` plugin manually from admin panel, to make everything work fine. 
 
-#### You can also import the test products provided by WooCommerce into your store and easily test the "random-products" plugin:
-- After installation of wordpress you should activate the `Random Products` plugin, it will also automatically activate the `WooCommerce` plugin.  
-- Now you can go on the `Products` page in admin-panel and click on the `Start import` button.
-- Next, select the file with test products: Project folder -> `test-products` folder -> `sample_products.csv` file.
-- Wait 1 minute and you will see test products on the `products` page.
-
 ### Linting:
 If you want to lint code - `composer` and all its dependencies should be installed. 
 - You Can specify a file to check in the `phpcs.xml` file inside `<file>` tag and then run `phpcs` to check styles:
@@ -83,20 +77,24 @@ make phpcbf
 - Example: `common: XPRT-123 add edit project page`
 
 ### Links:
-Docker:
+#### Docker:
 - https://hub.docker.com/_/mysql
 - https://hub.docker.com/_/wordpress
 - https://hub.docker.com/_/nginx
 - https://hub.docker.com/_/phpmyadmin
-Composer:
+
+#### Composer:
 - https://packagist.org/packages/squizlabs/php_codesniffer
 - https://wordpress.org/plugins/woocommerce/
-Gitignore:
+
+#### Gitignore:
 - https://git-scm.com/docs/gitignore
-WordPress:
+
+#### WordPress:
 - https://developer.wordpress.org/plugins/shortcodes/
 - https://developer.wordpress.org/plugins/settings/custom-settings-page/
 - https://www.smashingmagazine.com/2019/03/composer-wordpress/
-WooCommerce:
+
+#### WooCommerce:
 - https://woocommerce.com/document/importing-woocommerce-sample-data/
 - https://woocommerce.com/document/introduction-to-hooks-actions-and-filters/
