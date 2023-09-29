@@ -25,3 +25,12 @@ chmod-wp:
 # Install composer dependencies
 composer:
 	composer install
+
+# Run phpcs - checks styles
+phpcs:
+	vendor/bin/phpcs
+
+# Run phpcbf - fixes styles
+phpcbf:
+	vendor/bin/phpcbf
+

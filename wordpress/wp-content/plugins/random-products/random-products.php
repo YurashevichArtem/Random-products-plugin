@@ -47,7 +47,7 @@ function random_products_page(): void
 add_action('admin_menu', 'random_products_page');
 
 /**
- * This function displayes the contents of the "Random products" settings tab.
+ * This function displays the contents of the "Random products" settings tab.
  *
  * @return void
  */
@@ -99,18 +99,18 @@ function random_products_settings_init(): void
 add_action('admin_init', 'random_products_settings_init');
 
 /**
- * Callback that displayes general section text
+ * Callback that displays general section text
  *
  * @return void
  */
 function random_products_general_section(): void
 {
-    echo __('<p>Here you can set the number of products to be displayed</p>', 'random-products');
+    echo '<p>' . __('Here you can set the number of products to be displayed', 'random-products') . '</p>';
 }
 
 /**
- * Callback that provides input field for the general settings section
- *
+ * Callback that provides input field for the general settings section.
+ * There is no need to check data type inside this function - 'intval' option in register_settings does this automatically
  * @return void
  */
 function random_products_amount(): void
