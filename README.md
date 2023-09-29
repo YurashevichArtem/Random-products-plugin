@@ -3,22 +3,22 @@
 #### Automatic installation
 ###### To make the installation automatic you need installed `composer:2.5.X` and `php:8.1.X` or higher.
 - At first you need to specify all env variables by using command below. It will copy all ENV variables. from `.env.example` to `.env` file: 
-``` 
+```shell
 make env
 ```
 - Then you have to specify all ENV variables in `.env` file.
 - Run command to create docker container, change chmod of the wordpress directory, install all composer dependencies and wordpress plugins:
-```
+```shell
 make setup
 ``` 
 Or you can run commands included to `make setup` separately. Correct sequence:
-```
+```shell
 make docker-up
 ``` 
-```
+```shell
 make chmod-wp
 ``` 
-```
+```shell
 make composer
 ```
 - Now you can open url below and install WordPress, all necessary plugins will already be installed
@@ -29,20 +29,20 @@ http://localhost
 ###### If you want to use manual installation you can follow the guide below.
 #### Manual installation
 - Copy `.env.example` to `.env`:
-```
+```shell
 cp .env.example .env
 ```
 - Specify all variables in `.env`
 - Build and run docker container:
-```
+```shell
 docker compose up -d
 ```
 - Execute chmod command:
-```
+```shell
 sudo chmod -R 777 wordpress
 ```
 - Install composer dependencies and wordpress plugins:
-```
+```shell
 composer install
 ```
 You can skip `composer install` command and install `woocommerce` plugin manually from admin panel, to make everything work fine. 
@@ -50,11 +50,11 @@ You can skip `composer install` command and install `woocommerce` plugin manuall
 ### Linting:
 If you want to lint code - `composer` and all its dependencies should be installed. 
 - You Can specify a file to check in the `phpcs.xml` file inside `<file>` tag and then run `phpcs` to check styles:
-```
+```shell
 make phpcs
 ```
 - And `phpcbf` to fix styles:
-```
+```shell
 make phpcbf
 ```
 

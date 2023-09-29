@@ -7,9 +7,7 @@ Author: Innowise
 Description: This plugin provides a shortcode that displays a random number of products according to the setting specified in the "Random products" tab in the admin panel.
  */
 
-$product_template_path = plugin_dir_path(__FILE__) . 'templates/product-template.php';
-
-require($product_template_path);
+define('RANDOM_PRODUCTS_PLUGIN_DIR', WP_PLUGIN_DIR . '/random-products'); 
 
 /**
  * Random products plugin activation hook.
@@ -146,7 +144,9 @@ add_action('admin_init', 'random_products_save_option');
 function random_products_rendering(): string|false
 {
     ob_start();
-    display_random_products();
+
+    require RANDOM_PRODUCTS_PLUGIN_DIR . '/templates/product-template.php';
+
     wp_reset_postdata();
 
     return ob_get_clean();
