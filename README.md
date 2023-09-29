@@ -1,7 +1,7 @@
 ## README
 ### How to start the project
 #### Automatic installation
-###### To make the installation automatic you need installed `composer:2.5.X` and `php:8.1.X`.
+###### To make the installation automatic you need installed `composer:2.5.X` and `php:8.1.X` or higher.
 - At first you need to specify all env variables by using command below. It will copy all ENV variables. from `.env.example` to `.env` file: 
 ``` 
 make env
