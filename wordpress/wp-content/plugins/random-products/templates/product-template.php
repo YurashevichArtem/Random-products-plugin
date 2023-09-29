@@ -36,7 +36,7 @@ function display_random_products(): void
     $products = get_random_products();
 
     if (!$products->have_posts()) {
-        echo __('<p>No products found</p>', 'random-products');
+        echo '<p>' . __('No products found', 'random-products') . '</p>';
 
         return;
     }

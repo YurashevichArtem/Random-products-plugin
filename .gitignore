@@ -30,6 +30,9 @@ wordpress/wp-content/plugins/woocommerce
 # Wordpress languages
 !wordpress/wp-content/languages
 
+# Wordpress uploads
+wordpress/wp-content/uploads
+
 # Theme ignore
 wordpress/wp-content/themes/twentytwentyone/
 wordpress/wp-content/themes/twentytwentythree/
